@@ -1,4 +1,9 @@
-$(document).ready(generateMenu);
+// $(document).ready(generateMenu);
+$(document).ready(function() {
+    generateMenu();
+    addSearch();
+});
+
 
 function generateMenu() {
     //create an ul list in receptmeny
@@ -24,5 +29,16 @@ function generateMenu() {
         //append the listitem to menulist
         $("#menu-list").append(listItem);
     });
+}
+
+function addSearch() {
+    //create search container
+    var searchField = $("<div id='search-container'></div>");
+    //create input w id and placeholdertext
+    var searchInput = $("<input type='text' id='search-input' placeholder='Sök recept'>");
+    //append input to field
+    searchField.append(searchInput);
+    //place search before content
+    $("#content").before(searchField);
 }
 
