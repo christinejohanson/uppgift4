@@ -2,7 +2,7 @@ $(document).ready(generateMenu);
 
 function generateMenu() {
     //create an ul list in receptmeny
-    $("#receptmeny").append("<ul id='menu-list'></ul>");
+    $("#receptmeny .contentarea").append("<ul id='menu-list'></ul>");
     //variable for all the posts
     var postElements = $(".post");
     //go through all the elements
