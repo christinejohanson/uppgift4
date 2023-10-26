@@ -25,42 +25,59 @@ function generateMenu() {
         var listItem = $("<li></li>");
         //variable for the anchor items with attributes such as href # and id. and text h4text
         var anchorItem = $("<a></a>").attr("href", "#" + h4Id).text(h4Text);
-        // anchorItem.animate(ease);
-        // anchorItem.animate({"margin-left": '200'}, 'slow');
         //append the anchoritem to listitem
         listItem.append(anchorItem);
         //append the listitem to menulist
         $(".menu-list").append(listItem);
-
-
-    // var targetId = anchorItem.attr('href');
-    // var targetPosition = $(targetId).offset().top;
-
-    // $('html, body').animate({
-    //     scrollTop: targetPosition
-    // }, 800, 'easeInOutExpo'); // Adjust the duration and easing function as needed for the smooth scroll effect
-
-
-
-       
     });
 }
 
 
 function addSlider() {
-    // Create a div element for the slider
+    // create a div element for the slider
     var sliderDiv = $("<div id='sliderOn'></div>");
 
-    // Create and append the first radio button
-    var radioOne = $("<input type='radio' id='radioOne' name='buttonSelection' />");
-    sliderDiv.append(radioOne);
+    // create and append the first radio button w label
+    var radioOne = $("<input type='radio' id='option1' name='option' value='option1' />");
+    var labelOne = $("<label for='option1'>Smooth navigering</label>");
+    // create and append the second radio button w label
+    var radioTwo = $("<input type='radio' id='option2' name='option' value='option2' />");
+    var labelTwo = $("<label for='option2'>Vanlig navigering</label><br>");
+    //append all this to the sliderdiv
+    sliderDiv.append(radioOne, labelOne, radioTwo, labelTwo);
 
-    // Create and append the second radio button
-    var radioTwo = $("<input type='radio' id='radioTwo' name='buttonSelection' />");
-    sliderDiv.append(radioTwo);
+    // append the slider div to the header area
+    $("#header").append(sliderDiv);
+    //style the slider
+    $('#sliderOn').css({ "background-color": "#c09f99", "padding": "6px", "color": "white" });
+    //style the label
+    $('label').css({ "margin-right": "15px", "margin-left": "5px" });
+    // eventlistener on option
+    $("input[name='option']").on("change", function() {
+        if ($(this).val() === "option1") {
+            //run function
+            smoothCriminal();
+        } else if ($(this).val() === "option2") {
+            //turn off click for option 2
+            console.log("Option 2 is selected");
+            $('a[href^="#"]').off('click');
+        }
+    });
+}
 
-    // Append the slider div to the content area
-    $("#content").before(sliderDiv);
+//smooth scroll function
+function smoothCriminal() {
+    console.log("Option 1 is selected");
+        //animate ease function on link
+    $('a[href^="#"]').on('click', function(e) {
+        e.preventDefault();
+        //get href on the click
+        var href = $(this).attr('href');
+        //scroll to that element w animate and ease.
+        $('html, body').animate({
+            scrollTop: $(href).offset().top
+        }, 'ease');
+    });
 }
 
 //add search container and function for that
@@ -73,6 +90,7 @@ function addSearch() {
     searchField.append(searchInput);
     //place search before content
     $("#content").before(searchField);
+    $("#search-container").css({ "text-align": "center", "padding-bottom": "40px" });
 
     //search function from menulist li
     $('.menu-list li').each(function(){
@@ -92,4 +110,3 @@ function addSearch() {
         });   
     });
 }
-
