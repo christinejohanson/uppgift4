@@ -18,3 +18,13 @@ Ul-listan ska placeras i det tomma div-element med klassen .contentarea som ing�
 Menyns innehåll ska baseras på sidans innehåll. Annorlunda uttryckt ska man kunna ta bort eller lägga till några recept utan att menyn saknar eller innehåller överflödiga menyval. 
 
 Du ska infoga kommentarer i koden som på ett övertygande sätt förklarar hur din kod läser och manipulerar DOM-trädet för att skapa menyn. 
+
+##### VG betyg
+
+Utöver samtliga punkter som krävs för ett godkänt betyg ska du tillföra ytterligare JavaScript-funktionalitet som förhöjer användarupplevelsen. 
+
+Sökning med förslag.
+Användaren ska kunna söka i innehållet bland rubrikerna för de befintliga recepten på sidan. Under sökrutan ska förslag på recept som matchar söktermen dyka upp. Användaren ska därefter kunna klicka på något av receptförslagen och direkt föras till det aktuella receptet – precis på samma sätt som för menyn i G-nivån.
+
+Mjuk rullning.
+När användaren klickar på en ankarlänk i menyn ska webbläsaren inte hoppa omedelbart till receptet, utan istället rulla till receptet med hjälp av en mjuk animation.
