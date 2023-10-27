@@ -1,4 +1,3 @@
-// $(document).ready(generateMenu);
 $(document).ready(function() {
     generateMenu();
     addSearch();
@@ -36,7 +35,6 @@ function generateMenu() {
 function addSlider() {
     // create a div element for the slider
     var sliderDiv = $("<div id='sliderOn'></div>");
-
     // create and append the first radio button w label
     var radioOne = $("<input type='radio' id='option1' name='option' value='option1' />");
     var labelOne = $("<label for='option1'>Smooth navigering</label>");
@@ -59,7 +57,6 @@ function addSlider() {
             smoothCriminal();
         } else if ($(this).val() === "option2") {
             //turn off click for option 2
-            console.log("Option 2 is selected");
             $('a[href^="#"]').off('click');
         }
     });
@@ -67,7 +64,6 @@ function addSlider() {
 
 //smooth scroll function
 function smoothCriminal() {
-    console.log("Option 1 is selected");
         //animate ease function on link
     $('a[href^="#"]').on('click', function(e) {
         e.preventDefault();
@@ -90,6 +86,7 @@ function addSearch() {
     searchField.append(searchInput);
     //place search before content
     $("#content").before(searchField);
+    //style search container
     $("#search-container").css({ "text-align": "center", "padding-bottom": "40px" });
 
     //search function from menulist li
